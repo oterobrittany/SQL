@@ -47,12 +47,22 @@ INSERT INTO marvels VALUES(23, "Ghost Rider", 86, "Good", "Male", 1.88, 99, "EUA
 INSERT INTO marvels VALUES(24, "Venom", 78, "Neutral", "Male", 1.90, 118, "EUA", 3, 4, 2, 6, 1, 4);
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
+
 select * from marvels; 
+--filtered the data by alignment and popularity (using AND/OR)?
 select name from marvels where (alignment="good" or popularity>20);
+
+--filtered the data by gender, alignment and intelligence (using AND/OR)?
 select name from marvels where (gender="Female" and alignment="Good" and intelligence>6); 
+
+----filtered the data by hometown (using IN)?
 select * from marvels where hometown in ("USA", "Kenya", "Canada");  
+
+--numbers per category in the data (using HAVING)?
 select name, sum(speed) as total_speed from marvels group by name having total_speed>3;
 select name, avg(speed) as avg_speed from marvels group by name having avg_speed=3; 
+
+--what ways are there to group the data values that don’t exist yet (using CASE)?
 select count (*),
 case 
 when strength > 5 then "above max"
