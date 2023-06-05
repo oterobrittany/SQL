@@ -1,0 +1,22 @@
+/* Create table about the people and what they do here */
+create table famous_people (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT);
+
+create table careers (id INTEGER PRIMARY KEY, title TEXT, hometown TEXT); 
+
+insert into famous_people values (1, "will", "smith"); 
+insert into famous_people values (2, "gabriella", "union"); 
+insert into famous_people values (3, "dwayne", "wade"); 
+insert into famous_people values (4, "jhene", "aiko"); 
+insert into famous_people values (5, "justin", "timberlake");
+insert into careers values (1, "actor", "philadelphia");
+insert into careers values (2, "actor", "nebraska");
+insert into careers values (3, "basketball player", "chicago");
+insert into careers values (4, "singer", "tennessee");
+insert into careers values (5, "singer", "los angeles"); 
+
+/*cross join*/
+select * from famous_people, careers;
+
+/*outer join*/
+select famous_people.first_name, famous_people.last_name
+from famous_people left outer join careers on famous_people.id = careers.id;
